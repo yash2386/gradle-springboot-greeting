@@ -1,2 +1,10 @@
-stage "Build/Analyse/Test"
-sh "./gradlew clean build"
+node {
+
+    stage "Checkout" {
+    git url: "https://github.com/sravanim14/gradle-springboot-greeting.git"
+    }
+	
+    stage "Build" {
+    sh "./gradlew clean build"
+	}
+}
