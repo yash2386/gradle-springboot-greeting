@@ -1,10 +1,9 @@
 node {
-
-    stage "Checkout" {
+   stage ('Checkout') {
     git url: "https://github.com/sravanim14/gradle-springboot-greeting.git"
-    }
+   }
 	
-    stage "Build" {
+    stage ('Build') {
     sh "./gradlew clean build"
 	}
 }
