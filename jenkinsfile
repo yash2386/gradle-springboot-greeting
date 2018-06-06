@@ -1,0 +1,13 @@
+pipeline {
+
+	stages {
+
+    stage ('Build') {
+         sh './gradlew build'
+    }
+
+    stage ('Publish build info') {
+        server.publishBuildInfo buildInfo
+    }
+   }
+} 
