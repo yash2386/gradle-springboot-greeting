@@ -4,6 +4,7 @@ node {
    }
 	
     stage ('Build') {
+	sh "./gradle wrapper --gradle-version=4.8"
     sh "./gradlew clean build"
 	}
 }
