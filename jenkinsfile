@@ -27,5 +27,6 @@ node {
     } 
     else {
       bat 'docker build -t sravani/springboot-greetings:latest .'
-
+    }
+   }
 }
