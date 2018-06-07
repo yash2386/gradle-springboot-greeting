@@ -7,17 +7,25 @@ node {
     if (isUnix()) {
       sh './gradlew clean build'
     } 
-	else {
+    else {
       bat './gradlew.bat clean build'
     }
    }
    
    stage ('test') {
     if (isUnix()) {
-     sh './gradlew test'
+      sh './gradlew test'
     } 
-	else {
-     bat './gradlew.bat test'
+    else {
+      bat './gradlew.bat test'
     }
    }
+
+   stage ('Docker Build') {
+    if (isUnix()) {
+      sh 'docker build -t sravani/springboot-greetings:latest .'
+    } 
+    else {
+      bat 'docker build -t sravani/springboot-greetings:latest .'
+
 }
