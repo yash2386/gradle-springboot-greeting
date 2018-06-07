@@ -21,10 +21,15 @@ node {
     }
    }
     stage('sonar-scanner') {
-      def sonarqubeScannerHome = sonar_scanner_3.2: 'sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation' {
-        bat '${sonar_scanner_3.2}/bin/sonar-scanner -e -Dsonar.host.url=http://localhost:9000 -Dsonar.login=5ebe2d19e61772c18a1764064ba08589a8cc5326 -Dsonar.projectName=hello -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.sources=src/main/ -Dsonar.tests=src/test/ -Dsonar.language=java'
-      }
+	if (isUnix()) {
+      sh './gradlew test'
+    } 
+    else {
+	 def sonarqubeScannerHome = tool name: 'sonar', type: 'hudson.plugins.sonar.SonarRunnerInstallation' { 
+      bat '${sonar_scanner_3.2}/bin/sonar-scanner -e -Dsonar.host.url=http://localhost:9000 -Dsonar.login=5ebe2d19e61772c18a1764064ba08589a8cc5326 -Dsonar.projectName=hello -Dsonar.projectVersion=${env.BUILD_NUMBER} -Dsonar.sources=src/main/ -Dsonar.tests=src/test/ -Dsonar.language=java'
     }
+    }
+	}
    stage ('Docker Build') {
     if (isUnix()) {
       sh 'docker build -t sravani/springboot-greetings:latest .'
