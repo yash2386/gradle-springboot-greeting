@@ -25,8 +25,7 @@ node {
       sh './gradlew test'
     } 
     else {
-	  bat 'chmod +=rwx ./gradle.bat'
-      bat './gradlew.bat sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.login=5ebe2d19e61772c18a1764064ba08589a8cc5326'
+	  bat './gradlew.bat sonarqube -Dsonar.host.url=http://localhost:9000 -Dsonar.login=5ebe2d19e61772c18a1764064ba08589a8cc5326'
 	 }
 	}
    stage ('Docker Build') {
