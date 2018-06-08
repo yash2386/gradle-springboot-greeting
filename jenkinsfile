@@ -26,8 +26,7 @@ node {
       sh './gradlew test'
     } 
     else {
-	Stage 'Nexus Deploy'
-     nexusArtifactUploader
+	    nexusArtifactUploader
         artifactId: 'com.example.project',
         file: 'build/libs/gs-spring-boot-0.1.0.jar',
         groupId: 'Nexus_upload',
