@@ -29,13 +29,13 @@ node {
 	  nexusArtifactUploader(
       nexusVersion: 'nexus3',
       protocol: 'http',
-      nexusUrl: 'http://localhost:8081/repository/',
+      nexusUrl: 'localhost:8081',
       groupId: 'hello',
       version: '0.1.0',
       repository: 'Spring_Greetings',
       credentialsId: 'nexus-admin-creds',
       artifacts: [
-        [artifactId: 'gs-spring-boot',
+        [artifactId: '',
          classifier: '',
          file: 'build/libs/gs-spring-boot-0.1.0.jar',
          type: 'jar']
