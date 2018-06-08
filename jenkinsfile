@@ -35,7 +35,7 @@ node {
       repository: 'Spring_Greetings',
       credentialsId: 'nexus-admin-creds',
       artifacts: [
-        [artifactId: Application,
+        [artifactId: gs-spring-boot,
          classifier: '',
          file: 'build/libs/gs-spring-boot-0.1.0.jar',
          type: 'jar']
