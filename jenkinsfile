@@ -26,18 +26,20 @@ node {
       sh './gradlew test'
     } 
     else {
-	  def nexusUser = "$System.env.NEXUS_USER"
-      def nexusPass = "$System.env.NEXUS_PASS"
-
-      uploadArchives {
-       repositories {
-        mavenDeployer {
-            repository(url: "http://localhost:8081/repository/Spring_Greetings/") {
-                authentication(userName: admin, password: admin123)
-              }
-           }
-       }
-	   }
+	Stage 'Nexus Deploy'
+     nexusArtifactUploader
+        artifactId: 'com.example.project',
+        file: 'build/libs/gs-spring-boot-0.1.0.jar',
+        groupId: 'Nexus_upload',
+        type:'jar',
+        nexusPassword: 'admin123',
+        nexusUrl: 'http://localhost:8081/repository/',
+        nexusUser: 'admin',
+        nexusVersion: 'nexus3',
+        protocol: 'http',
+        repository: 'Spring_Greetings',
+        version: '0.0.1-SNAPSHOT'
+    }
    }	
     stage ('Docker Build') {
     if (isUnix()) {
