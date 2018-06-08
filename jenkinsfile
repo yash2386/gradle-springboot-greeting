@@ -27,7 +27,7 @@ node {
     } 
     else {
 	    nexusArtifactUploader
-        artifactId: 'com.example.project',
+        artifactId: 'hello',
         file: 'build/libs/gs-spring-boot-0.1.0.jar',
         groupId: 'Nexus_upload',
         type:'jar',
