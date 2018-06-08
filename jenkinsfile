@@ -26,10 +26,18 @@ node {
       sh './gradlew test'
     } 
     else {
-	withCredentials([usernamePassword(credentialsId: 'admin123', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'admin')]) {
-    bat './gradlew.bat -DNEXUS_PASSWORD=$NEXUS_PASSWORD -DNEXUS_USER=$NEXUS_USER upload --debug'
-    }
-    }
+	  def nexusUser = "$System.env.NEXUS_USER"
+      def nexusPass = "$System.env.NEXUS_PASS"
+
+      uploadArchives {
+       repositories {
+        mavenDeployer {
+            repository(url: "http://localhost:8081/repository/Spring_Greetings/") {
+                authentication(userName: admin, password: admin123)
+              }
+           }
+       }
+	   }
    }	
     stage ('Docker Build') {
     if (isUnix()) {
