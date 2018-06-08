@@ -28,7 +28,10 @@ node {
     else {
 	withCredentials([usernamePassword(credentialsId: 'admin123', passwordVariable: 'NEXUS_PASSWORD', usernameVariable: 'admin')]) {
     bat './gradlew.bat -DNEXUS_PASSWORD=$NEXUS_PASSWORD -DNEXUS_USER=$NEXUS_USER upload --debug'
-}   stage ('Docker Build') {
+    }
+    }
+   }	
+    stage ('Docker Build') {
     if (isUnix()) {
       sh 'docker build -t sravani/springboot-greetings:latest .'
     } 
