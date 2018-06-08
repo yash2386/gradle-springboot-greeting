@@ -26,10 +26,10 @@ node {
       sh './gradlew test'
     } 
     else {
-	    nexusArtifactUploader
+	  nexusArtifactUploader
         artifactId: 'hello',
         file: 'build/libs/gs-spring-boot-0.1.0.jar',
-        groupId: 'Nexus_upload',
+        groupId: 'gs-spring-boot',
         type:'jar',
         nexusPassword: 'admin123',
         nexusUrl: 'http://localhost:8081/repository/',
@@ -37,7 +37,7 @@ node {
         nexusVersion: 'nexus3',
         protocol: 'http',
         repository: 'Spring_Greetings',
-        version: '0.0.1-SNAPSHOT'
+        version: '0.1.0'
     }
    }	
     stage ('Docker Build') {
