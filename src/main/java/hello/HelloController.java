@@ -27,11 +27,11 @@ class PersonController {
     @RequestMapping(method = RequestMethod.POST, value = "/create")
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ApiOperation(value = "Get Person", notes = "Fetch List of Person")
-    @ApiResponses(value = [
+    @ApiResponses(value = 
             @ApiResponse(code = 400, message = "Fields are with validation errors"),
             @ApiResponse(code = 201, message = "List"),
             @ApiResponse(code = 500, message = "Error occurred while fetching Person")
-    ])
+    )
     ResponseEntity create(@RequestBody PersonCO co) {
         return new ResponseEntity(new Person(firstName: co.firstName, lastName: co.lastName, age: co.age), HttpStatus.OK)
     }
