@@ -1,5 +1,4 @@
 package hello;
-package com.intelligrape.com.person;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
