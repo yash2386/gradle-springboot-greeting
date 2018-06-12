@@ -32,7 +32,7 @@ class PersonController {
             @ApiResponse(code = 201, message = "List"),
             @ApiResponse(code = 500, message = "Error occurred while fetching Person")
     )
-    ResponseEntity create(@RequestBody PersonCO co) {
+    ResponseEntity create(@RequestBody Person co) {
         return new ResponseEntity(new Person(firstName: co.firstName, lastName: co.lastName, age: co.age), HttpStatus.OK)
     }
 }
