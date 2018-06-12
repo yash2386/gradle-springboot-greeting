@@ -49,6 +49,7 @@ sourceCompatibility = 1.8
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
+	compile ("com.mangofactory:swagger-springmvc:1.0.2")
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("junit:junit")
@@ -57,5 +58,11 @@ dependencies {
 	}
 
 	swaggerCodegen("io.swagger:swagger-codegen-cli:$swaggerCodeGenVersion")
+	
+	task copySwaggerGeneratedCode(type: Copy) {
+	
+	from "${buildDir}/swagger-code"
+	into "${projectDir}"
+}
 }
 
