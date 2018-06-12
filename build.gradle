@@ -1,8 +1,7 @@
 buildscript {
 	ext {
 		springBootVersion = '2.0.2.RELEASE'
-		swaggerCodeGenVersion = "2.2.1"
-	}
+		}
     repositories {
         mavenCentral()
 		maven {
@@ -49,6 +48,6 @@ dependencies {
     testCompile("org.springframework.boot:spring-boot-starter-test")
     compile("org.springframework.boot:spring-boot-starter-actuator")
     testCompile("junit:junit")
-	
-}
+	}
+
 
